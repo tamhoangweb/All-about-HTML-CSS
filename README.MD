@@ -1,9 +1,14 @@
-# Cách tổ chức 1 file CSS 
+# All about CSS (update...)
+## 1. Cách tổ chức 1 file CSS 
 Phân chia loại CSS 
 
 Có bảng đề mục loại CSS
 
-## Ví dụ 
+Các CSS có chung đặc tính ghi gần nhau
+
+Các CSS khác đặc tính ghi cách nhau 1 dòng
+
+Ví dụ 
 ```CSS
 /* table of contens
 1. global styles 
@@ -30,7 +35,7 @@ Có bảng đề mục loại CSS
 
 ```
 
-# Cách cách selector element để CSS (tên gọi khác: CSS selectors)
+## 2. Cách selector element để CSS (tên gọi khác: CSS selectors)
 ### 1. Nhóm được chọn nhờ tự thân element đó 
 Dựa vào tên thẻ của element
 ```CSS
@@ -139,8 +144,8 @@ Dựa vào anh trực tiếp hoặc xa xôi
 li.red ~ li 
 ```
 
-# CSS tricks 
-## 1.Tooltip
+## 3. CSS tricks 
+### 1.Tooltip
 Các selectors sử dụng: 
 ```css
 [data-tooltip]
@@ -174,15 +179,15 @@ transform: translate(-50%, -100%)
 
 ```
 
-## 2. :is
+### 2. :is
 Các selectors sử dụng: 
 ```css
 /* CSS cho các element là li, con của ul hoặc ol, và ol hoặc ul này là con của ul hoặc ol khác */
 :is(ul, ol) :is(ul, ol) li
 ```
 
-## 3. Tăng biến đếm trong CSS
-### Bài toán 1:
+### 3. Tăng biến đếm trong CSS
+#### Bài toán 1:
 - Trong tài liệu html, có nhiều thẻ h2 
 - Mỗi thẻ h2 là 1 tiêu đề, chỉ chứa nội dung có nghĩa, không có đánh số đề mục.
 - Dùng CSS để sao cho trước mỗi h2, sẽ được đánh số đề mục la mã tự động.
@@ -202,7 +207,7 @@ h2::before {
 }
 ```
 
-### Bài toán 2: Dùng counters syntax thay đổi cách hiển thị số của order list 
+#### Bài toán 2: Dùng counters syntax thay đổi cách hiển thị số của order list 
 Mặc định order list hiển thị là 
 ```html
 1. First item
@@ -232,7 +237,7 @@ li:before {
 }
 ```
 
-## 4.Flexbox Gap
+### 4.Flexbox Gap
 Property gap thường được dùng trong display flex. Tuy nhiên nhiều trình duyệt chưa hỗ trợ thuộc tính này, ví dụ: safari trên iOS.
 
 Giải pháp thay thế là dùng margin với cách selector đặc biệt như sau:
@@ -250,7 +255,7 @@ Giải pháp thay thế là dùng margin với cách selector đặc biệt như
 }
 ```
 
-## 5.Value conic-gradient dùng để tạo màu
+### 5.Value conic-gradient dùng để tạo màu
 
 ```css
 background: conic-gradient(
@@ -258,4 +263,72 @@ background: conic-gradient(
    blue .25turn .5turn, //từ 25% đến 50%
    green .5turn         //từ 50% đến 100%
 );
+```
+
+### 6. Tạo chữ transparent với background là hình ảnh. (Background Clip Text)
+```css
+background-image: url('water.jpg')
+-webkit-background-clip: text
+background-clip: text
+color: transparent
+```
+
+### 7. Reset lại giá trị của toàn bộ các thuộc tính css của element. (The All Property)
+```css
+all: initial 
+```
+
+### 8. Sử dụng giá trị 9999px để tạo bo góc cho đường viên (Easy Pill Shaped Buttons)
+Giúp bo góc đường viền mà không cần cài đặt chiều cao cho block.
+```css
+border-radius: 9999px;
+```
+
+### 9. Tạo ký tự ... khi đoạn văn dài quá độ rộng của khối (Text overflow Ellipsis)
+```css
+text-overflow: ellipsis
+white-space: nowrap
+overflow: hidden
+```
+
+## 4. Dùng query @supports để kiểm tra trình duyệt có hỗ trợ thuộc tính css hay không
+Ví dụ: 
+- Nếu trình duyệt CÓ hỗ trợ property position có value là sticky thì element body, sẽ có màu nền là màu pink
+```css
+@supports (position: sticky){
+  body {
+      background-color: pink;
+  }
+}
+```
+- Nếu trình duyệt KHÔNG CÓ hỗ trợ property position có value là sticky thì element body, sẽ có màu nền là màu pink
+```css
+@supports not (position: sticky){
+  body {
+      background-color: pink;
+  }
+}
+```
+- Nếu trình duyệt có hỗ trợ property position có value là sticky, VÀ position có value là relative thì element body, sẽ có màu nền là màu pink
+```css
+@supports (position: sticky) and (position: relative) {
+  body {
+      background-color: pink;
+  }
+}
+```
+- Nếu trình duyệt có hỗ trợ property position có value là sticky, HOẶC position có value là relative thì element body, sẽ có màu nền là màu pink
+```css
+@supports (position: sticky) or (position: relative) {
+  body {
+      background-color: pink;
+  }
+}
+```
+
+## 5. Dùng query @media để CSS cho màn hình nằm ngang
+```css
+@media (orientation: landscape) {
+   
+}
 ```
