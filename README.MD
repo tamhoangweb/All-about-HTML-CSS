@@ -332,3 +332,82 @@ Ví dụ:
    
 }
 ```
+
+## 6. CSS Animation
+Bối cảnh 1:
+- Có 1 block cha
+- Bên trong block cha có 1 block con
+- Khi hover qua block cha thì block con chuyển động.
+
+Nguyên tắc:
+- Thuộc tính transition sẽ được đặt ở block con 
+- Thuộc tính "chuyển động" sẽ được đặt ở block con khi block cha được hover 
+```css
+block-con {
+   thuộc tính transition
+}
+block-cha:hover block-con{
+  thuộc tính chuyển động
+}
+```
+- Trường hợp chuyển động sau 1 khoảng thời gian user vào website, không phải dựa vào việc block cha được hover thì:
+```css
+/* Đối với thuộc tính transition, sẽ dùng transition-delay */
+transition-delay: 2s;
+```
+
+```css
+/* Đối với thuộc tính animation, sẽ dùng animation-delay */
+animation-delay: 2s
+```
+- Thuộc tính transition tạo ra cảm giác chuyển động mượt mà, hoặc va đập, tốc độ nhanh chậm ...
+- Thuộc tính chuyển động, bao gồm tất cả các thuộc tính css, khiến cho block con thay đổi vị trí, màu, kích thước... Tóm lại là các thuộc tính khiến cho block-con đổi từ kiểu css này sang kiểu css khác Ví dụ:
+1. margin
+2. padding
+3. left, top, right, bottom
+4. transform
+5. animation
+...
+- Trong đó, thuộc tính animation là tổng hợp của nhiều thuộc tính chuyển động khác. Do đó, nó phải được tạo ra bằng rule keyframes.
+```css
+block-cha:hover block-con {
+  animation: left-to-right 1s ease-in
+}
+@keyframe left-to-right {
+  100% {
+      transform: translateX(100%);
+  }
+}
+``` 
+
+### 1. Các value của thuộc tính animation 
+- name            : là tên khi tạo rule @keyframe
+- duration        : Thời gian hoàn thành chuyển động 1 lần
+- delay           : Thời gian trì hoãn trước khi chạy (có cho phép dùng số âm)
+- iteration-count : Số lần chạy, hoặc chạy vô tận
+- direction       : hướng chuyển động
+- timing-function : linear, ease, ease-in, ease-out, ease-in-out
+- fill-mode.      : có bị giật về vị trí ban đầu sau khi thực hiện chuyển động hay ko
+### 2. Các rule @keyframe
+- Thuộc tính animation phải chỉ ra Khoảng thời gian thực hiện xong chuyển động.
+- @keyframe sẽ dựa vào khoảng thời gian này, mà tiến hành thay đổi hiệu ứng.
+```css
+@keyframe example {
+  0%   {background-color: red;}
+  25%  {background-color: yellow;}
+  50%  {background-color: blue;}
+  100% {background-color: green;}
+}
+```
+### 3. Khi hover qua block-cha thì, block-con ngưng chuyển động.
+- Chuyển thuộc tính animation lên làm thuộc tính mặc định của block-con
+- Dùng thuộc tính animation-play-state
+```css
+block-con {
+  animation: left-to-right 1s ease-in forwards infinite alternate
+}
+
+block-cha:hover block-con{
+  animation-play-state: paused
+}
+```
