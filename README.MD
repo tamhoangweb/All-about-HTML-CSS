@@ -388,6 +388,7 @@ block-cha:hover block-con {
 - direction       : hướng chuyển động
 - timing-function : linear, ease, ease-in, ease-out, ease-in-out
 - fill-mode.      : có bị giật về vị trí ban đầu sau khi thực hiện chuyển động hay ko
+
 ### 2. Các rule @keyframe
 - Thuộc tính animation phải chỉ ra Khoảng thời gian thực hiện xong chuyển động.
 - @keyframe sẽ dựa vào khoảng thời gian này, mà tiến hành thay đổi hiệu ứng.
@@ -409,5 +410,107 @@ block-con {
 
 block-cha:hover block-con{
   animation-play-state: paused
+}
+```
+
+## 7. CSS Animation Performance
+### 1. Nếu chuyển động lên xuống, hãy dùng transform: translateY thay cho margin
+### 2. Nếu biến mất, hãy dùng opacity.
+
+## 8. Thuộc tính CSS ít dùng nhưng hay
+### 1. Resizable
+```css
+/* Dùng chuột kéo mở rộng khối theo chiều ngang */
+resize: horizontal
+resize: both
+overflow: hidden
+
+/* giới hạn phạm vi mở rộng khối */
+min-width: 200px
+width: 300px
+max-width: 400px
+```
+
+### 2. Aspect Ratio
+```css
+aspect-ratio: 16 / 9
+aspect-ratio: 1 / 1
+/* cài đặt độ rộng mặc định */
+width: 100px
+``` 
+
+### 3. Scroll padding Top
+Cài đặt khoảng cách mặc định giữa scroll khi click vào anchor với viền trên của trình duyệt.
+```css
+:root {
+  --header-height: 50px
+  scroll-padding-top: calc(var(--header-height) + 10px);
+  scroll-behavior: smooth;
+}
+```
+
+## 8. Flexbox design patterns
+Chỉ dùng display: flex; mà không cần dùng @media query
+1. Các column có độ rộng bằng nhau
+2. Các column có độ rộng khác nhau
+3. Column content và column sidebar 
+### 1. Các column có độ rộng bằng nhau
+```css
+/* Đối với block cha */
+.container {
+   display: flex;
+}
+/* Đối với các block con cấp 1 bên trong */
+.container > * {
+   flex-basis: 100%;
+}
+```
+### 2. Các column có độ rộng khác nhau
+Khi div container còn đủ chỗ:
+- Mỗi div con có độ rộng ít nhất là 10em
+- Tất cả column nằm dàn ngang
+
+Khi div container không còn đủ chỗ:
+- Các column rớt xuống hàng dưới
+- Và chiếm đủ 100% độ rộng div container
+```css
+/* Đối với block cha */
+.container {
+   display: flex;
+   flex-wrap: wrap;
+}
+/* Đối với các block con cấp 1 bên trong */
+.container > * {
+    /*
+   flex-growth: 1
+   flex-shrink: 1
+   flex-basis: 10em
+   */
+   flex: 1 1 10em;
+}
+```
+
+### 3. Column content và column sidebar 
+```css
+/* Đối với block cha */
+.container {
+   display: flex;
+   flex-wrap: wrap;
+}
+/* Đối với block content */
+.container > *:nth-child(1) {
+   /*
+   flex-growth: 1
+   flex-shrink: 1
+   flex-basis: 70%
+   */
+   flex: 1 1 70%;
+   /* 25ch = 25 * 8px */
+   min-width: 25 ch;
+}
+/* Đối với block sidebar */
+.container > *:nth-child(2) {
+   flex: 1 1 30%;
+   min-width: 15 ch;
 }
 ```
