@@ -170,8 +170,37 @@ Màn hình từ 1113px trở lên: -12px
 }
 ```
 
+## 6. Các Class tạo offset tự động 
+c-off-1: ở màn hình di động, sẽ margin left 1 khoảng bằng 1/12 row. 
 
+m-off-1: ở màn hình medium, sẽ margin left 1 khoảng bằng 1/12 row. 
 
+l-off-1: ở màn hình lớn trở lên, sẽ margin left 1 khoảng bằng 1/12 row. 
+
+## 7. Row No gutter 
+Thêm modifier no-gutter cho class row.
+
+Khi đó phải css cho .col cũng không có gutter
+```html
+.row.no-gutter
+   .col
+```
+```scss
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -4px;
+  margin-right: -4px;
+  &.no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+    & .col {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+```
 
 
 

@@ -27,6 +27,14 @@
   flex-wrap: wrap;
   margin-left: -4px;
   margin-right: -4px;
+  &.no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+    & .col {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
 }
 .col {
   padding-left: 4px;
