@@ -85,6 +85,47 @@
     max-width: 100%;
   }
 }
+.c-off {
+  &-0 {
+    display: none;
+  }
+  &-1 {
+    margin-left: 8.33333%;
+  }
+  &-2 {
+    margin-left: 16.66667%;
+  }
+  &-3 {
+    margin-left: 25%;
+  }
+  &-4 {
+    margin-left: 33.33333%;
+  }
+  &-5 {
+    margin-left: 41.66667%;
+  }
+  &-6 {
+    margin-left: 50%;
+  }
+  &-7 {
+    margin-left: 58.33333%;
+  }
+  &-8 {
+    margin-left: 66.66667%;
+  }
+  &-9 {
+    margin-left: 75%;
+  }
+  &-10 {
+    margin-left: 83.33333%;
+  }
+  &-11 {
+    margin-left: 91.66667%;
+  }
+  &-12 {
+    margin-left: 100%;
+  }
+}
 
 /* pc trung bình*/
 @media (min-width: 1024px) and (max-width: 1239px) {
@@ -164,6 +205,44 @@
     &-12 {
       flex: 0 0 100%;
       max-width: 100%;
+    }
+  }
+  .wide .l-off {
+    &-1 {
+      margin-left: 8.33333%;
+    }
+    &-2 {
+      margin-left: 16.66667%;
+    }
+    &-3 {
+      margin-left: 25%;
+    }
+    &-4 {
+      margin-left: 33.33333%;
+    }
+    &-5 {
+      margin-left: 41.66667%;
+    }
+    &-6 {
+      margin-left: 50%;
+    }
+    &-7 {
+      margin-left: 58.33333%;
+    }
+    &-8 {
+      margin-left: 66.66667%;
+    }
+    &-9 {
+      margin-left: 75%;
+    }
+    &-10 {
+      margin-left: 83.33333%;
+    }
+    &-11 {
+      margin-left: 91.66667%;
+    }
+    &-12 {
+      margin-left: 100%;
     }
   }
 }
@@ -251,6 +330,44 @@
       max-width: 100%;
     }
   }
+  .m-off {
+    &-1 {
+      margin-left: 8.33333%;
+    }
+    &-2 {
+      margin-left: 16.66667%;
+    }
+    &-3 {
+      margin-left: 25%;
+    }
+    &-4 {
+      margin-left: 33.33333%;
+    }
+    &-5 {
+      margin-left: 41.66667%;
+    }
+    &-6 {
+      margin-left: 50%;
+    }
+    &-7 {
+      margin-left: 58.33333%;
+    }
+    &-8 {
+      margin-left: 66.66667%;
+    }
+    &-9 {
+      margin-left: 75%;
+    }
+    &-10 {
+      margin-left: 83.33333%;
+    }
+    &-11 {
+      margin-left: 91.66667%;
+    }
+    &-12 {
+      margin-left: 100%;
+    }
+  }
 }
 @media (min-width: 1113px) {
   .row {
@@ -326,6 +443,44 @@
     &-12 {
       flex: 0 0 100%;
       max-width: 100%;
+    }
+  }
+  .l-off {
+    &-1 {
+      margin-left: 8.33333%;
+    }
+    &-2 {
+      margin-left: 16.66667%;
+    }
+    &-3 {
+      margin-left: 25%;
+    }
+    &-4 {
+      margin-left: 33.33333%;
+    }
+    &-5 {
+      margin-left: 41.66667%;
+    }
+    &-6 {
+      margin-left: 50%;
+    }
+    &-7 {
+      margin-left: 58.33333%;
+    }
+    &-8 {
+      margin-left: 66.66667%;
+    }
+    &-9 {
+      margin-left: 75%;
+    }
+    &-10 {
+      margin-left: 83.33333%;
+    }
+    &-11 {
+      margin-left: 91.66667%;
+    }
+    &-12 {
+      margin-left: 100%;
     }
   }
 }
