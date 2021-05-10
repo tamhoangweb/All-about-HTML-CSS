@@ -1,0 +1,27 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: darkgray;
+}
+header {
+  padding: 2em;
+  background: #fff;
+  /* display: flex; */
+}
+.nav{
+
+  display: flex;
+}
+.nav__list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav__list a{
+  line-height: 3;
+  color: chocolate;
+}
+.nav__list a:hover,
+.nav__list a:focus {
+  color:cornflowerblue
+}
