@@ -17,6 +17,32 @@ body {
 }
 ```
 
+hoặc, cách viết tắt
+
+```scss
+body {
+  display: grid;
+  grid-template:
+    "header header header header" 10em
+    "hero hero hero hero" 50vh
+    ". main sidebar ." auto
+    "footer footer footer footer" 10em / 1fr 5fr 2fr 1fr;
+}
+```
+
+Cài đặt minmax cho cột thứ 2 (main) và cột thứ 3 (sidebar)
+
+```scss
+body {
+  display: grid;
+  grid-template:
+    "header header header header" 10em
+    "hero hero hero hero" 50vh
+    ". main sidebar ." auto
+    "footer footer footer footer" 10em / 1fr minmax(30em, 5fr) minmax(15em, 2fr) 1fr;
+}
+```
+
 ## Cài đặt thuộc tính grid-area cho các item
 
 ```scss
@@ -100,3 +126,47 @@ Các thuộc tính:
 - Khoảng cách 2 bên
 
 ## Grid layout cho card tin tức
+
+### 1. Đặt tên cho các grid item
+
+```scss
+.card-img {
+  grid-area: img;
+}
+.card-title {
+  grid-area: title;
+}
+.card-content {
+  grid-area: content;
+}
+```
+
+### 2. Định grid layout cho grid container
+
+```scss
+.card {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: min-content auto;
+  grid-template-areas:
+    "img title"
+    "img content";
+}
+```
+
+HOẶC viết tắt:
+
+```scss
+.card {
+  display: grid;
+  grid-template:
+    "img title" min-content
+    "img content" auto / 1fr 3fr;
+}
+```
+
+### 3. CSS thêm cho card container
+
+```
+
+```

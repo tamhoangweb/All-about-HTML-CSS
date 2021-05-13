@@ -41,13 +41,20 @@ body {
   @include font-base;
   line-height: 1.6;
   display: grid;
-  grid-template-rows: 10em 50vh auto 10em;
-  grid-template-columns: 1fr 5fr 2fr 1fr;
-  grid-template-areas:
-    "header header header header"
-    "hero hero hero hero"
-    ". main sidebar ."
-    "footer footer footer footer";
+  // grid-template-rows: 10em 50vh auto 10em;
+  // grid-template-columns: 1fr 5fr 2fr 1fr;
+  // grid-template-areas:
+  //   "header header header header"
+  //   "hero hero hero hero"
+  //   ". main sidebar ."
+  //   "footer footer footer footer";
+  grid-template:
+    "header header header header" 10em
+    "hero hero hero hero" 50vh
+    ". main sidebar ." auto
+    "footer footer footer footer" 10em / 1fr minmax(30em, 5fr) minmax(15em, 2fr)
+    1fr;
+  grid-column-gap: 1.5em;
 }
 
 header {
@@ -74,6 +81,8 @@ main {
 }
 aside {
   grid-area: sidebar;
+  background-color: $dark-gray;
+  padding: 1.5em;
 }
 footer {
   grid-area: footer;
@@ -93,9 +102,28 @@ footer {
 }
 .card {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  // grid-template-columns: 1fr 3fr;
+  // grid-template-rows: min-content auto;
+  // grid-template-areas:
+  //   "img title"
+  //   "img content";
+  grid-template:
+    "img title" min-content
+    "img content" auto / 1fr 3fr;
+  grid-column-gap: 1em;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+  padding: 1.5em;
+  border-radius: 1em;
+  margin-bottom: 1.4em;
 }
 .card-img {
+  grid-area: img;
+}
+.card-title {
+  grid-area: title;
+  margin: 0;
+  font-weight: 400;
 }
 .card-content {
+  grid-area: content;
 }
