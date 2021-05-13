@@ -38,12 +38,20 @@ grid-row-gap: 10px;
 grid-auto-rows: 160px;
 ```
 
+### 5. Tự động lấp đầy ô trống (grid spots trống)
+
+```css
+display: grid;
+grid-auto-flow: dense;
+```
+
 ## Các thuộc tính dùng trong thẻ con (item):
 
 ### Đường line trong grid
 
 - Bắt đầu đếm từ 1 ở cạnh trái đầu tiên: column line
 - Bắt đầu đếm từ 1 ở cạnh trên đầu tiên: row line
+- Line cuối là: -1
 - Các item có thể được sắp xếp vị trí hiển thị tùy ý theo 2 loại đường line này.
 
 ### Chỉ định số cột mà item chiếm lấy
@@ -94,6 +102,8 @@ grid-template-rows: repeat(3, minmax(200px, auto));
 
 ## Các đơn vị và từ khóa có thể dùng
 
+### 1. span
+
 - span: mở rộng
   VD: item3 mở rộng 3 lần
 
@@ -106,3 +116,21 @@ hoặc
 ```css
 grid-colum: 1 / 4;
 ```
+
+### 2. 80% + 20% != 8fr 2fr
+
+100% + 20px thì tổng độ rộng của lưới sẽ tràn ra ngoài 20px
+
+(8+2)fr + 20px thì tổng độ rộng của lưới vẫn được chia là 8phần và 2 phần nhưng ko bị tràn ra ngoài 20px
+
+```css
+grid-gap: 20px;
+grid-template-columns: 8fr 2fr;
+```
+
+```css
+grid-gap: 20px;
+grid-template-columns: 80% 20%;
+```
+
+Kết luận: Nên dùng fr.
