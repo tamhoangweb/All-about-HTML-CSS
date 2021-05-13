@@ -55,6 +55,19 @@ header {
 }
 .hero {
   grid-area: hero;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/gridarea-hero-bg.jpg");
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.hero-title {
+  @include font-alt($fs-xl);
+  margin: 0;
+}
+.hero-subtitle {
+  @include font-base($font-size: $fs-h2, $color: $white);
+  margin: 0;
 }
 main {
   grid-area: main;
@@ -64,4 +77,25 @@ aside {
 }
 footer {
   grid-area: footer;
+}
+
+header,
+footer {
+  background-color: $black;
+  color: $yellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-title,
+.footer-title {
+  @include font-alt($fs-h2, $yellow);
+}
+.card {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.card-img {
+}
+.card-content {
 }
