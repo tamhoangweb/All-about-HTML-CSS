@@ -147,3 +147,42 @@ Cho từng dãy cube xếp chồng và xem kẽ nhau một chút bằng thuộc 
   margin-left: -75px;
 }
 ```
+
+## Hiệu ứng khi hover khối cube sẽ đổi màu và có cảm giác nối đuôi nhau
+
+Để tạo cảm giác đổi màu nối đuôi nhau cần cài thuộc tính transition ở cả 2 selector( selector mặc định, và selector khi hover qua)
+
+```css
+/* selector mặc định */
+.cube span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  transition: 2s;
+}
+/* selector hover */
+.cube:hover span {
+  transition: 0s;
+  background-color: #03a9f4;
+}
+```
+
+Tạo thêm animation đổi màu kiểu hue-rotate
+
+```css
+.cube span {
+  animation: animate 10s linear infinite;
+}
+@keyframes animate {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+```
