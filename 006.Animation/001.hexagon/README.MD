@@ -147,3 +147,23 @@ Tăng thời gian mất đi hiệu ứng hover, bằng cách thêm thuộc tính
   transition: 0s;
 }
 ```
+
+## Mouse hover => đổi màu đường viền
+
+Dùng pseudo after của thẻ hexagon, tạo ra 1 khối hình hexagon, và thu nhỏ các phía 4px (tạo cảm giác là đường viền)
+
+Tạo clip path hình hexagon cho pseudo này, với bg là màu đen
+
+```css
+.hexagon2:after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  pointer-events: none;
+  background: #111;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+```
