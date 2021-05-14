@@ -6,9 +6,9 @@ là 3 thẻ có thuộc tính clip-path tương ứng là các mặt khác nhau 
 
 thẻ thứ 2 cạnh bên, có thêm 1 pseudo before nằm đè lên và màu sạm đi, tạo cảm giác thiếu sáng.
 
-## Các bước làm
+### Các bước làm
 
-### HTML
+#### HTML
 
 ```
 body
@@ -18,7 +18,7 @@ body
         span*3
 ```
 
-### CSS
+#### CSS
 
 Reset css, và cho body chiếm hết chiều cao màn hình trình duyệt, đồng thời display flex, để căn giữa cube.
 
@@ -82,5 +82,68 @@ Tạo màu sậm cho những mặt thiếu sáng bằng pseudo before
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+}
+```
+
+## Cách tạo nhiều khối 3D tràn đầy màn hình
+
+### HTML
+
+```
+Một dãy cube nằm ngang
+(.cube>span*3)*12
+```
+
+### CSS
+
+Cho thẻ body full chiều cao
+
+```css
+body {
+  min-height: 100vh;
+}
+```
+
+Cho thẻ .container full màn hình, và ẩn những pixel dư.
+
+```css
+.container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+```
+
+Cho các cube nằm thành hàng ngang:
+
+- .row có display flex thì các item bên trong sễ xếp ngang.
+
+```css
+.row {
+  position: relative;
+  display: inline-flex;
+}
+```
+
+Copy 1 row thành nhiều row
+
+```
+Dãy thứ 2
+(.cube>span*3)*12
+....
+
+```
+
+Cho từng dãy cube xếp chồng và xem kẽ nhau một chút bằng thuộc tính margin-top và margin-left giá trị âm
+
+```css
+.row {
+  position: relative;
+  display: inline-flex;
+  margin-top: -45px;
+}
+.row:nth-child(even) {
+  margin-top: -45px;
+  margin-left: -75px;
 }
 ```
