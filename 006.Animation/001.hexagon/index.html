@@ -392,6 +392,16 @@
       <div class="hexagon2"></div>
     </div>
   </div>
+
+  <div id="cursor"></div>
+  <script>
+    let cursor = document.getElementById('cursor');
+    console.log(cursor)
+    window.onmousemove = e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    }
+  </script>
 </body>
 
 </html>

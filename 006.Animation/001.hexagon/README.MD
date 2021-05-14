@@ -167,3 +167,81 @@ Tạo clip path hình hexagon cho pseudo này, với bg là màu đen
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
 }
 ```
+
+## Mouse hover => chiếu sáng theo mảng tròn
+
+Tạo hình tròn
+
+```html
+<div id="cursor"></div>
+```
+
+```css
+#cursor {
+  width: 400px;
+  height: 400px;
+  background: #0f0;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 50%;
+}
+```
+
+Viết javascript cho window lắng nghe sự kiện mouseover. Lấy tọa độ chuột, gán vào thuộc tính left, top của hình tròn.
+
+```js
+<script>
+  let cursor = document.getElementById('cursor');
+  console.log(cursor)
+  window.onmousemove = e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  }
+</script>
+```
+
+Chỉnh vị trí của hình tròn, sao cho con chuột nằm giữa hình tròn
+
+```css
+#cursor {
+  width: 300px;
+  height: 300px;
+  background: #0f0;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  border-radius: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+```
+
+Tạo hiệu ứng ánh sáng cho hình tròn bằng thuộc tính filter để làm màu background và bị blur đi
+
+```css
+#cursor {
+  animation: animate 4s linear infinite;
+}
+@keyframes animate {
+  0% {
+    filter: hue-rotate(0deg) blur(50px);
+  }
+  100% {
+    filter: hue-rotate(360deg) blur(50px);
+  }
+}
+```
+
+Cho hình tròn nằm ở lớp dưới container.
+
+```css
+#cursor {
+  z-index: 1;
+}
+.container {
+  z-index: 2;
+}
+```
+
+Cho các hexagon trong khu vực được hover có cùng màu.
+Xóa css của pseudo after, và pseudo hover của .hexagon
