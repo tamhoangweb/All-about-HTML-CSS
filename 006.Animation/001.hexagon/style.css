@@ -5,53 +5,36 @@
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  row-gap: 20px;
-  align-items: center;
-  min-height: 100vh;
   background: #000;
 }
 
-.hexagon {
-  position: relative;
-  width: 60px;
-  height: 100px;
-  background: #0F0;
-}
 .hexagon2 {
-  width: 120px;
-  height: 100px;
+  position: relative;
+  margin: 1px;
+  width: 100px;
+  height: 110px;
+  background: #111;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  transition: 2s;
+}
+.hexagon2:before{
+  content:'';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  pointer-events: none;
+  background: rgba(255, 255, 255, 0.02);
+}
+.hexagon2:hover{
+  transition: 0s;
   background: #0F0;
-  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
-
-.hexagon:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -30px;
-  width: 0px;
-  height: 0px;
-  border-right: 30px solid #000;
-  border-top: 50px solid transparent;
-  border-bottom: 50px solid transparent;
-}
-
-.hexagon:after {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: -30px;
-  width: 0px;
-  height: 0px;
-  border-left: 30px solid #000;
-  border-top: 50px solid transparent;
-  border-bottom: 50px solid transparent;
-}
-
 .container {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
   animation: animate 4s linear infinite;
 }
 @keyframes animate {
@@ -61,4 +44,13 @@ body {
   100% {
     filter: hue-rotate(360deg);
   }
+}
+
+.row {
+  display: inline-flex;
+  margin-top: -32px;
+  margin-left: -50px;
+}
+.row:nth-child(even) {
+  margin-left: 1px;
 }
