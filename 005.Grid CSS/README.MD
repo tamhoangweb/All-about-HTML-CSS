@@ -45,6 +45,18 @@ display: grid;
 grid-auto-flow: dense;
 ```
 
+### 6. Căn giữa tracks theo trục X: justify-content
+
+```css
+display: grid;
+grid-template-columns: repeat(3, 100px);
+justify-content: center;
+```
+
+### 7. Căn giữa items theo trục X: justify-items
+
+Lưu ý: từng item con có thể tự căn giữa cho content của mình, bằng thuộc tính justify-self
+
 ## Các thuộc tính dùng trong thẻ con (item):
 
 ### Đường line trong grid

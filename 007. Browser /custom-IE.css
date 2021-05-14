@@ -1,0 +1,6 @@
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  /* Toàn bộ những thuộc tính tại đây sẽ chỉ có tác dụng đối với IE10+ */
+  .box {
+      width: 80px; 
+  }
+}

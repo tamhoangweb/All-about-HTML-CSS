@@ -30,7 +30,7 @@ Ví dụ
 
 ```
 
-## Các CSS nên dùng
+## 2. Các CSS nên dùng
 
 ```CSS
 :focus{
@@ -39,7 +39,7 @@ Ví dụ
 
 ```
 
-## 2. Cách selector element để CSS (tên gọi khác: CSS selectors)
+## 3. Cách selector element để CSS (tên gọi khác: CSS selectors)
 
 ### 1. Nhóm được chọn nhờ tự thân element đó
 
@@ -161,7 +161,7 @@ Dựa vào anh trực tiếp hoặc xa xôi
 li.red ~ li
 ```
 
-## 3. CSS tricks
+## 4. CSS tricks
 
 ### 1.Tooltip
 
@@ -328,7 +328,7 @@ white-space: nowrap
 overflow: hidden
 ```
 
-## 4. Dùng query @supports để kiểm tra trình duyệt có hỗ trợ thuộc tính css hay không
+## 5. Dùng query @supports để kiểm tra trình duyệt có hỗ trợ thuộc tính css hay không
 
 Ví dụ:
 
@@ -372,14 +372,14 @@ Ví dụ:
 }
 ```
 
-## 5. Dùng query @media để CSS cho màn hình nằm ngang
+## 6. Dùng query @media để CSS cho màn hình nằm ngang
 
 ```css
 @media (orientation: landscape) {
 }
 ```
 
-## 6. CSS Animation
+## 7. CSS Animation
 
 Bối cảnh 1:
 
@@ -483,13 +483,13 @@ block-cha:hover block-con {
 }
 ```
 
-## 7. CSS Animation Performance
+## 8. CSS Animation Performance
 
 ### 1. Nếu chuyển động lên xuống, hãy dùng transform: translateY thay cho margin
 
 ### 2. Nếu biến mất, hãy dùng opacity.
 
-## 8. Thuộc tính CSS ít dùng nhưng hay
+## 9. Thuộc tính CSS ít dùng nhưng hay
 
 ### 1. Resizable
 
@@ -526,7 +526,7 @@ Cài đặt khoảng cách mặc định giữa scroll khi click vào anchor v�
 }
 ```
 
-## 9. Flexbox design patterns
+## 10. Flexbox design patterns
 
 Chỉ dùng display: flex; mà không cần dùng @media query
 
@@ -602,7 +602,7 @@ Khi div container không còn đủ chỗ:
 }
 ```
 
-## 10. Các pseudo css
+## 11. Các pseudo css
 
 ### Đổi màu chữ khi quét khối (text selection color)
 
@@ -611,3 +611,34 @@ Khi div container không còn đủ chỗ:
   background-color: #73248b;
 }
 ```
+
+## 12. Đơn vị đo trong CSS
+
+Giá trị font-size mặc định của các trình duyệt là 16px
+
+### 1. REM
+
+Rem: khi font size của trình duyệt thay đổi, thì giá trị cơ bản 1 rem thay đổi.
+
+VD:
+User zoom trình duyệt lên 200%, thì giá trị font-size của thẻ html sẽ tăng lên 200%
+
+=> Rem = Rem \* 2
+
+### 2. EM
+
+Khi cài đặt thuộc tính font-size cho chính nó, hoặc element cha gần nhất, thì giá trị cơ bản của 1 em thay đổi.
+
+Khi dùng @media query, người ta thường dùng đơn vị em
+
+### 3. PX
+
+Nếu user zoom màn hình trình duyệt lên 200% để nhìn thấy rõ chữ, thì với đơn vị px, nó vẫn giữa nguyên kích thước.
+
+Cho nên, người ta hay dùng đơn vị rem hoặc em.
+
+### 4. VW = view port width
+
+Thường dùng trong responsive hình full màn hình từ trái qua phải
+
+### 5. VH = view port height
